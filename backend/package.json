@@ -1,0 +1,38 @@
+{
+    "dependencies": {
+        "@koa/cors": "^3.1.0",
+        "@types/koa-cors": "^0.0.0",
+        "bcrypt": "^5.0.0",
+        "jsonwebtoken": "^8.5.1",
+        "koa": "^2.13.0",
+        "koa-bodyparser": "^4.3.0",
+        "koa-cors": "^0.0.16",
+        "koa-json": "^2.0.2",
+        "koa-jwt": "^4.0.0",
+        "koa-logger": "^3.2.1",
+        "koa-router": "^9.4.0",
+        "mongoose": "^5.10.1"
+    },
+    "devDependencies": {
+        "@types/bcrypt": "^3.0.0",
+        "@types/jsonwebtoken": "^8.5.0",
+        "@types/koa": "^2.11.4",
+        "@types/koa-bodyparser": "^4.3.0",
+        "@types/koa-json": "^2.0.18",
+        "@types/koa-jwt": "^3.3.0",
+        "@types/koa-logger": "^3.1.1",
+        "@types/koa-router": "^7.4.1",
+        "@types/mongoose": "^5.7.36",
+        "@types/node": "^14.6.1",
+        "nodemon": "^2.0.4"
+    },
+    "name": "backend",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "Bonifacio Juarez Ceja (reb)",
+    "license": "MIT",
+    "scripts": {
+        "dev": "tsc-watch --onSuccess \"node dist/index.js\" ",
+        "start": "node dist/index.js"
+    }
+}
