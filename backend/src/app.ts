@@ -6,6 +6,7 @@ import bodyParser from 'koa-bodyparser'
 import Kjwt from 'koa-jwt'
 
 import authRouter from './routers/auth.routes'
+import userRouter from './routers/private/user.routes'
 import config from './config/config.env'
 
 const app = new Koa();
@@ -23,7 +24,7 @@ app.use(authRouter.routes())
 app.use(authRouter.allowedMethods())
   //private
 app.use(Kjwt({secret:config.JWT_SECRET}))
-
+app.use(userRouter.routes())
 //default
 app.use(async (ctx) => {
   ctx.status= 400
