@@ -9,7 +9,7 @@ export const signUp = async (ctx:Context) => {
     return ctx.body = { error:"no se enciaron los datos"}
   }
   try {
-    const newUser = await new User(user);
+    const newUser = await new User(user).save();
     ctx.status = 201
     return ctx.body = {user:newUser}
   } catch (error) {

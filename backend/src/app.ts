@@ -9,6 +9,7 @@ import Kcors from '@koa/cors'
 import authRouter from './routers/auth.routes'
 import userRouter from './routers/private/user.routes'
 import typeRouter from './routers/private/products/type.routes'
+import serviceRouter from './routers/private/services/service.routes'
 import config from './config/config.env'
 
 const app = new Koa();
@@ -25,14 +26,12 @@ app.use(Kcors())
 app.use(authRouter.routes())
 app.use(authRouter.allowedMethods())
   //private
-app.use(Kjwt({secret:config.JWT_SECRET}))
-app.use(userRouter.routes())
-app.use(typeRouter.routes())
+app.use(Kjwt({ secret: config.JWT_SECRET }))
+app.use(typeRouter.routes()).use(typeRouter.allowedMethods())
+app.use(userRouter.routes()).use(userRouter.allowedMethods())
+app.use(serviceRouter.routes()).use(serviceRouter.allowedMethods())
 //default
-app.use(async (ctx) => {
-  ctx.status= 400
-  ctx.body = "ruta no existente";
-});
+
 
 
 

@@ -1,9 +1,11 @@
 import { model, Schema, Document } from 'mongoose'
+import { IService } from '../services/service';
 
 export interface IType extends Document{
   name: string;
   display_name: string;
   description: string;
+  services: IService[];
 } 
 
 const typeSchema = new Schema({
@@ -21,7 +23,10 @@ const typeSchema = new Schema({
   },
   description: {
     type:String
-  }
+  },
+  services: [
+    {type:Schema.Types.ObjectId,ref:'Service'}
+  ]
 })
 
 export default model<IType>('Type', typeSchema);
